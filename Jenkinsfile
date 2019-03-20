@@ -6,5 +6,12 @@ pipeline {
                 sh "echo test"
             }
         }
+        stage('Build') {
+            steps {
+                script {
+                    error "This pipeline stops here!"
+                }
+            }
+        }
     }
 }

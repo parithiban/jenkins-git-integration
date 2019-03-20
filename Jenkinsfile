@@ -6,7 +6,7 @@ pipeline {
                 sh "echo test"
             }
         }
-        stage('Build') {
+        stage('stage 2') {
             steps {
                 script {
                     error "This pipeline stops here!"

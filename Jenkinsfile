@@ -6,5 +6,10 @@ pipeline {
                 sh "echo test"
             }
         }
+        stage('Print env') {
+            steps {
+                sh 'printenv'
+            }   
+        }
     }
 }

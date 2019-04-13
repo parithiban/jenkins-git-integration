@@ -6,5 +6,15 @@ pipeline {
                 sh "echo test"
             }
         }
+        stage('Print env') {
+            steps {
+                sh 'printenv'
+            }   
+        }
+        stage('Print status') {
+            steps {
+                sh 'git branch'
+            }   
+        }
     }
 }

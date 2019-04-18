@@ -1,0 +1,5 @@
+{
+    "jenkins.pipeline.linter.connector.url": "http://192.168.33.110:8080/pipeline-model-converter/validate",
+    "jenkins.pipeline.linter.connector.user": "admin",
+    "jenkins.pipeline.linter.connector.pass": "admin"
+}

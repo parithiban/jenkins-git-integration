@@ -1,6 +1,19 @@
 pipeline {
     agent any 
     stages {
+        stage('Code Review Notification') { 
+            when {
+                not {
+                    anyOf {
+                        branch "development"
+                        branch "master"
+                    }
+                }
+            }
+            steps {
+                slackSend channel: '#automation', message: 'Code Review -  <' + CHANGE_URL + '|' + CHANGE_BRANCH + '>'
+            }
+        }
         stage('Build') { 
             steps {
                 sh "echo test"

@@ -12,7 +12,7 @@ pipeline {
             }
             steps {
                 slackSend channel: '#automation', message: 'CRM Code Review: \n Branch - ' + CHANGE_BRANCH + 
-                '\n Link - ' + CHANGE_URL + '<' + CHANGE_URL + '|' + CHANGE_BRANCH + '>'
+                '\n Link - ' + CHANGE_URL
             }
         }
         stage('Build') { 

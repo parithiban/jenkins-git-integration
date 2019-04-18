@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Print status') {
             steps {
-                sh 'git branch'
+                slackSend color:'#5cb85c', channel: '#automation', message: '😎 CRM Build Success  - #' + BUILD_NUMBER + ' - "' + BRANCH_NAME + '" (<' + BUILD_URL + '|Open>)'
             }   
         }
     }

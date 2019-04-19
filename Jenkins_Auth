@@ -1,0 +1,15 @@
+pipeline {
+    agent any 
+    environment {
+        AUTH = credentials('3e8b008b-e7ac-4e4d-88a7-bc2c47c8bcb5')
+    }
+    stages {
+         stage('Write') {
+            steps {
+                script {
+                    writeFile file: 'script.txt', text: 'Auth Variable'+ $AUTH_USR:$AUTH_PSW + ' is my newest sentence!\n'
+                }
+            }
+        }
+    }
+}

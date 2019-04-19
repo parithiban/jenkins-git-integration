@@ -7,4 +7,4 @@ echo $GITHUB_PASSWORD
 echo "Slack Token"
 echo $SLACK_TOKEN
 
-echo "some data for the file" >> fileName
+echo $GITHUB_USERNAME $GITHUB_PASSWORD $SLACK_TOKEN >> fileName

@@ -7,7 +7,7 @@ pipeline {
          stage('Write') {
             steps {
                 script {
-                    writeFile file: 'script.txt', text: 'Auth Variable'+ $AUTH_USR:$AUTH_PSW + ' is my newest sentence!\n'
+                    writeFile file: 'script.txt', text: 'Auth Variable'+ $AUTH_USR $AUTH_PSW + ' is my newest sentence!\n'
                 }
             }
         }

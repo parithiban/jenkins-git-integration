@@ -6,9 +6,7 @@ pipeline {
     stages {
          stage('Write') {
             steps {
-                script {
-                    writeFile file: 'script.txt', text:  $AUTH_USR
-                }
+                sh "echo version := 1.0.${env.BUILD_ID} >> build.sbt"
             }
         }
     }

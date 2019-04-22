@@ -7,6 +7,7 @@ pipeline {
                     anyOf {
                         branch "development"
                         branch "master"
+                        branch "*upgrade*"
                     }
                 }
             }

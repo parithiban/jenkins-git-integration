@@ -9,12 +9,12 @@ pipeline {
                 sh "echo version := ${env.AUTH_USR}  ${env.AUTH_PSW}>> build.sbt"
             }
         }
-        stage('Writing script') {
-            steps {
-                script {
-                    writeFile file: 'script.txt', text: ${env.AUTH_USR}  ${env.AUTH_PSW}
-                }
-            }
-        }
+        // stage('Writing script') {
+        //     steps {
+        //         script {
+        //             writeFile file: 'script.txt', text: ${env.AUTH_USR}  ${env.AUTH_PSW}
+        //         }
+        //     }
+        // }
     }
 }

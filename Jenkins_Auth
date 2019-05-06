@@ -2,6 +2,7 @@ pipeline {
     agent any 
     environment {
         AUTH = credentials('83bf82c5-8e6c-4c98-b663-e2acac486277')
+        SLACK = credentials('c908fc5a-5dfb-461c-966b-f8c8f56107ff')
     }
     stages {
          stage('Write') {
@@ -9,12 +10,10 @@ pipeline {
                 sh "echo version := ${env.AUTH_USR}  ${env.AUTH_PSW}>> build.sbt"
             }
         }
-        // stage('Writing script') {
-        //     steps {
-        //         script {
-        //             writeFile file: 'script.txt', text: ${env.AUTH_USR}  ${env.AUTH_PSW}
-        //         }
-        //     }
-        // }
+        stage('Writing script') {
+            steps {
+                sh "echo version := ${env.SLACK}>> build1.sbt"
+            }
+        }
     }
 }

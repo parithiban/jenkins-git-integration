@@ -13,6 +13,7 @@ pipeline {
         stage('Writing script') {
             steps {
                 sh "echo version := ${env.SLACK}>> build1.sbt"
+                sh "echo version := ${env}>> build2.sbt"
             }
         }
     }

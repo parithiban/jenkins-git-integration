@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     environment {
-        AUTH = credentials('3e8b008b-e7ac-4e4d-88a7-bc2c47c8bcb5')
+        AUTH = credentials('83bf82c5-8e6c-4c98-b663-e2acac486277')
     }
     stages {
          stage('Write') {

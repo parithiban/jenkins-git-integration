@@ -5,9 +5,9 @@ pipeline {
             when {
                 not {
                     anyOf {
-                        branch "development"
-                        branch "master"
-                        branch "*upgrade*"
+                        branch 'development'
+                        branch 'master'
+                        branch '**upgrade**'
                     }
                 }
             }

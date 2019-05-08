@@ -3,6 +3,10 @@ pipeline {
     stages {
         stage('Code Review Notification') { 
             when {
+                 allOf {
+                    expression { env.CHANGE_ID != null }
+                    expression { env.CHANGE_TARGET != null }
+                }
                 not {
                     anyOf {
                         branch 'development'

@@ -7,8 +7,10 @@ pipeline {
             }
         }
         stage('Branch Status') {
-            slackSend channel: '#automation', message: 'Branch is not update'
-            error("Build failed because of this and that..")
+            steps{
+                slackSend channel: '#automation', message: 'Branch is not update'
+                error("Build failed because of this and that..")
+            }            
         }
         stage('Code Review Notification') { 
             when {

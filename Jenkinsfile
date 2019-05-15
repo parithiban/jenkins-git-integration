@@ -1,6 +1,15 @@
 pipeline {
     agent any 
     stages {
+        stage('Install Dependency') {
+            steps {
+                sh 'make install-python-deps'
+            }
+        }
+        stage('Branch Status') {
+            slackSend channel: '#automation', message: 'Branch is not update'
+            error("Build failed because of this and that..")
+        }
         stage('Code Review Notification') { 
             when {
                  allOf {

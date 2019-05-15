@@ -8,6 +8,18 @@ pipeline {
         }
         stage('Branch Status') {
             steps{
+                script {
+                    branchStatus = sh(
+                        script: "make branch-check",
+                        returnStdout: true,
+                    )
+                }
+                when {
+                    not {
+                        branchStatus true
+                    }
+                }
+
                 slackSend channel: '#automation', message: 'Branch is not update'
                 error("Build failed because of this and that..")
             }            

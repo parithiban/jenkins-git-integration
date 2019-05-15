@@ -26,10 +26,11 @@ ifeq ($(SLACK_TOKEN),)
 	@exit 1;
 endif
 
-.PHONY: pending-pull-reviews
+# .PHONY: pending-pull-reviews
 # branch-check: check-token
 # 	@python scripts/pending-pull-reviews.py --git $(GITHUB_TOKEN) --slack $(SLACK_TOKEN)
 
+.PHONY: branch-check
 branch-check: 
 	@echo "true"
 

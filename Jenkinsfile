@@ -6,23 +6,9 @@ pipeline {
                 sh 'make install-python-deps'
             }
         }
-        stage('Branch Status') {
-            steps{
-                script {
-                    branchStatus = sh(
-                        script: "make branch-check",
-                        returnStdout: true,
-                    )
-                    if(branchStatus) {
-                        slackSend channel: '#automation', message: 'Branch is not update'
-                        error("Build failed because of this and that..")
-                    }
-                }
-            }           
-        }
-        stage('Code Review Notification') { 
+        stage('Git Actions') {
             when {
-                 allOf {
+                allOf {
                     expression { env.CHANGE_ID != null }
                     expression { env.CHANGE_TARGET != null }
                 }
@@ -34,11 +20,44 @@ pipeline {
                     }
                 }
             }
-            steps {
-                slackSend channel: '#automation', message: '@here \n CRM Code Review \n Branch - ' + CHANGE_BRANCH + 
-                '\n Link - ' + CHANGE_URL
+            parallel {
+                stage('Branch Status') {
+                    steps{
+                        sh 'make branch-check'
+                    }           
+                }
+                stage('Code Review Notification') { 
+                    steps {
+                        slackSend channel: '#automation', message: '@here \n CRM Code Review \n Branch - ' + CHANGE_BRANCH + 
+                        '\n Link - ' + CHANGE_URL
+                    }
+                }
             }
         }
+        // stage('Branch Status') {
+        //     steps{
+        //         sh 'make branch-check'
+        //     }           
+        // }
+        // stage('Code Review Notification') { 
+        //     when {
+        //          allOf {
+        //             expression { env.CHANGE_ID != null }
+        //             expression { env.CHANGE_TARGET != null }
+        //         }
+        //         not {
+        //             anyOf {
+        //                 branch 'development'
+        //                 branch 'master'
+        //                 branch '**upgrade**'
+        //             }
+        //         }
+        //     }
+        //     steps {
+        //         slackSend channel: '#automation', message: '@here \n CRM Code Review \n Branch - ' + CHANGE_BRANCH + 
+        //         '\n Link - ' + CHANGE_URL
+        //     }
+        // }
         stage('Build') { 
             steps {
                 sh "echo test"

@@ -32,7 +32,7 @@ endif
 
 .PHONY: branch-check
 branch-check: 
-	@echo "false"
+	echo "false"
 
 .PHONY: install-python-deps
 install-python-deps:

@@ -13,18 +13,12 @@ pipeline {
                         script: "make branch-check",
                         returnStdout: true,
                     )
-                }
-            }
-            steps {
-                when {
-                    not {
-                        branchStatus true
+                    if(branchStatus) {
+                        slackSend channel: '#automation', message: 'Branch is not update'
+                        error("Build failed because of this and that..")
                     }
                 }
-
-                slackSend channel: '#automation', message: 'Branch is not update'
-                error("Build failed because of this and that..")
-            }            
+            }           
         }
         stage('Code Review Notification') { 
             when {

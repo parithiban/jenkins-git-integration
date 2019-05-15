@@ -14,6 +14,8 @@ pipeline {
                         returnStdout: true,
                     )
                 }
+            }
+            steps {
                 when {
                     not {
                         branchStatus true

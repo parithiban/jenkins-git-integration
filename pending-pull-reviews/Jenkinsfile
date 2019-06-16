@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    environment {
+        GIT = credentials('git_token')
+        SLACK = credentials('slack_hook')
+    }
+    stages {
+        stage('Install Dependency') {
+            steps {
+                sh 'make install-python-deps'
+            }
+        }
+        stage('Execute Script') {
+            steps {
+                sh "make pending-pull-reviews GITHUB_TOKEN=${env.GIT_PSW} SLACK_HOOK=${env.SLACK}"
+            }
+        }
+    }
+}

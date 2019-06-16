@@ -1,2 +1,12 @@
-#vscode 
+# vscode
 .vscode
+
+#DS_Store
+.DS_Store
+
+# Python Cache
+*.pyc
+*pycache*
+
+# virtual env
+venv

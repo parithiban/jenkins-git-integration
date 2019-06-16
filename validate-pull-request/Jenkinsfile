@@ -1,0 +1,41 @@
+pipeline {
+    agent any
+    environment {
+        GIT = credentials('git_token')
+        SLACK = credentials('slack_hook')
+    }
+    stages {
+        stage('Install Dependency') {
+            steps {
+                sh 'make install-python-deps'
+            }
+        }
+        stage('Notify Slack') {
+            when {
+                allOf {
+                    expression { env.CHANGE_ID != null }
+                    expression { env.CHANGE_URL != null }
+                }
+                not {
+                    anyOf {
+                        branch "development"
+                        branch "master"
+                    }
+                }
+            }
+            parallel {
+                stage('Validate PR') {
+                    steps{
+                        sh "make validate-pr GITHUB_TOKEN=${env.GIT_PSW} PR_NUMBER=${env.CHANGE_ID} SLACK_HOOK=${env.SLACK} GIT_REPO=${env.GIT_URL}"
+                    }
+                }
+                stage('Code Review Notification') {
+                    steps {
+                        slackSend channel: '#your-channel', message: 'Code Review \n Branch - ' + CHANGE_BRANCH +
+                        '\n Link - ' + CHANGE_URL
+                    }
+                }
+            }
+        }
+    }
+}

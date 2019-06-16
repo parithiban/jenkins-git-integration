@@ -1,7 +1,0 @@
-{
-  "DEFAULT": {
-    "PR_REVIEW_REPOS": ["crm", "intranet", "support-centre"],
-    "ORGANISATION": "emisgroup",
-    "PROTECTED_BRANCH": "development"
-  }
-}

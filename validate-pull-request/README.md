@@ -16,7 +16,7 @@ In terminal run the following command
 make validate-pr GITHUB_TOKEN=XXXX SLACK_HOOK=XXXXX PR_NUMBER=12 GIT_REPO=https://github.com/parithiban/jenkins-git-integration.git
 ```
 
-Replace your git with git token and slack with webhook url respectively. In slack Webhook `https://hooks.slack.com/services/` part is common so that is given in [config.json](config/config.json) the succeding url can be replaced in the above command
+Replace your git with git token and slack with webhook url respectively. In slack Webhook `https://hooks.slack.com/services/` part is common so that is given in [config.json](../config/config.json) the succeding url can be replaced in the above command
 
 #### Output Example
 
@@ -33,7 +33,3 @@ Add the following credentials with the mentioned id in jenkins
 `slack_hook` - Secret Text (Add only the succeding url part after the common path as mentioned above)
 
 Ex:![Alt text](../assests/jenkins-credentials.png?raw=true "jenkins-credentials")
-
-Create a pipeline script job that runs at regular intervals in jenkins and add the [Jenkinsfile](pending-pull-reviews/Jenkinsfile) as below example
-
-Ex:![Alt text](../assests/jenkins-job.png?raw=true "jenkins-credentials")

@@ -1,8 +1,8 @@
 # Pending Pull Reviews Git Slack Integration
 
-This is to integrate git jenkins and slack to notify slack users about the pending pull reviews for the repos that is configured in [config.json](config/config.json)
+This is to integrate git jenkins and slack to notify slack users about the pending pull reviews for the repos that is configured in [config.json](../config/config.json)
 
-In [config.json](config/config.json) you can ammend your additional repos to `PR_REVIEW_REPOS` key and update the `organisation` key also
+In [config.json](../config/config.json) you can ammend your additional repos to `PR_REVIEW_REPOS` key and update the `organisation` key also
 
 #### To Test It Locally
 
@@ -18,7 +18,7 @@ In terminal run the following command
 make pending-pull-reviews GITHUB_TOKEN=XXXX SLACK_HOOK=XXXX
 ```
 
-Replace your git with git token and slack with webhook url respectively. In slack Webhook `https://hooks.slack.com/services/` part is common so that is given in [config.json](config/config.json) the succeding url can be replaced in the above command
+Replace your git with git token and slack with webhook url respectively. In slack Webhook `https://hooks.slack.com/services/` part is common so that is given in [config.json](../config/config.json) the succeding url can be replaced in the above command
 
 #### Output Example
 

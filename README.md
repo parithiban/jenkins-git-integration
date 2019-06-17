@@ -52,8 +52,8 @@ source venv/bin/activate
 
 #### Pending Pull Reviews
 
-[Setup for pending pull reviews](pending-pull-reviews/README.md)
+[Setup for pending pull reviews](/pending-pull-reviews)
 
 #### Validate Pull Request
 
-[Setup for validate pull request](validate-pull-request/README.md)
+[Setup for validate pull request](/validate-pull-request)

@@ -1,6 +1,6 @@
 # How this works: https://help.github.com/articles/about-codeowners/
 
-* @parithiban
+* @parithiban @global-owner2
 
 # Order is important; the last matching pattern takes the most
 # precedence. When someone opens a pull request that only

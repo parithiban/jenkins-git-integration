@@ -56,4 +56,4 @@ source venv/bin/activate
 
 #### Validate Pull Request
 
-[Setup for validate pull request](/validate-pull-request)  test
+[Setup for validate pull request](/validate-pull-request) 

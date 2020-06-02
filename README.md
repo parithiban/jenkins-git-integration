@@ -34,7 +34,7 @@ git clone https://github.com/parithiban/jenkins-git-integration.git
 cd jenkins-git-integration
 ```
 
-#### Install dependency
+#### Install dependency 
 
 ```bash
 make all
